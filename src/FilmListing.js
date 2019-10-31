@@ -9,14 +9,13 @@ export default class FilmListing extends Component {
   render() {
 let url = this.props.moviesImg;
   let allFilms = this.props.films.map((film,index) => {
-    return <FilmRow key={index} film={film} url={url} onFaveToggle={() => this.props.onFaveToggle(film)} isFave={this.props.faves.includes(film)} />;
+    return <FilmRow key={index} film={film} url={url} onFaveToggle={() => this.props.onFaveToggle(film)} onDetailsClick={()=>this.props.onDetailsClick(film)} isFave={this.props.faves.includes(film)} />;
   });
   let faves = this.props.faves.map((film,index) => {
-    return <FilmRow key={index} film={film} url={url} onFaveToggle={() => this.props.onFaveToggle(film)} isFave={this.props.faves.includes(film)} />;
+    return <FilmRow key={index} film={film} url={url} onFaveToggle={() => this.props.onFaveToggle(film)}  onDetailsClick={()=>this.props.onDetailsClick(film)} isFave={this.props.faves.includes(film)} />;
   });
 
   let handleFilterClick = (filter) => {
-    console.log(`Setting filter to ${filter}`);
     this.setState({
       filter:filter
     })
